@@ -1,0 +1,43 @@
+// VisualForce Page code //
+
+<apex:page controller="Calculator" >
+    <apex:sectionHeader title="Calcultor" subtitle="Basic Calculator"/>
+    <apex:form >
+    <apex:pageBlock title="Simple Calculator">
+        <apex:pageBlockButtons location="bottom">
+        <apex:commandButton value="Addition" action="{!Addition}" reRender="res"/>
+        <apex:commandButton value="Subtraction" action="{!Subtraction}" reRender="res"/>
+         <apex:commandButton value="Multiplication" action="{!Multiplication}" reRender="res"/>
+         </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Calculator">
+        	<apex:inputText label="Enter First : " html-placeholder="first" value="{!first}"/>
+            <apex:inputText label="Enter Second : " html-placeholder="second" value="{!second}"/>
+            <apex:outputText label="Result" value="{!re}" id="res"/>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>
+
+
+// Apex Class // 
+
+public class Calculator {
+
+    public integer first {get;set;}
+    public integer second{get;set;}
+    public integer re {get;set;}
+    
+    public void Addition()
+    {
+		re=first+second;
+    }
+    public void Subtraction()
+    {
+		re=first-second;
+    }
+    public void Multiplication()
+    {
+		re=first*second;
+    }
+}
